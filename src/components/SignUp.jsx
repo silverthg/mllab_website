@@ -1,30 +1,64 @@
-import { Form } from "./Form";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { setUser } from "store/slices/userSlice";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import React, { useRef, useState } from "react";
+import { Form, Button, Card, Alert } from "react-bootstrap";
+import { useAuth } from "../context/use-auth.js";
+import { Link, useNavigate } from "react-router-dom";
 
-const SignUp = () => {
-  const dispatch = useDispatch();
-  let navigate = useNavigate();
+export default function Signup() {
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const passwordConfirmRef = useRef();
+  const { signup } = useAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const handleRegister = (email, password) => {
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        console.log(user);
-        dispatch(
-          setUser({
-            email: user.email,
-            id: user.uid,
-            token: user.accessToken,
-          })
-        );
-        navigate("/");
-      })
-      .catch(console.error);
-  };
-  return <Form title="register" handleClick={handleRegister} />;
-};
+  async function handleSubmit(e) {
+    e.preventDefault();
 
-export { SignUp };
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError("Passwords do not match");
+    }
+
+    try {
+      setError("");
+      setLoading(true);
+      await signup(emailRef.current.value, passwordRef.current.value);
+      navigate("/dashboard");
+    } catch {
+      setError("Failed to create an account");
+    }
+
+    setLoading(false);
+  }
+
+  return (
+    <>
+      <Card>
+        <Card.Body>
+          <h2 className="text-center mb-4">Регистрация</h2>
+          {error && <Alert variant="danger">{error}</Alert>}
+          <Form onSubmit={handleSubmit}>
+            <Form.Group id="email">
+              <Form.Label>Электронная почта</Form.Label>
+              <Form.Control type="email" ref={emailRef} required />
+            </Form.Group>
+            <Form.Group id="password">
+              <Form.Label>Пароль</Form.Label>
+              <Form.Control type="password" ref={passwordRef} required />
+            </Form.Group>
+            <Form.Group id="password-confirm">
+              <Form.Label>Подтверждение пароля</Form.Label>
+              <Form.Control type="password" ref={passwordConfirmRef} required />
+            </Form.Group>
+            <Button disabled={loading} className="w-100" type="submit">
+              Зарегистрироваться
+            </Button>
+          </Form>
+        </Card.Body>
+      </Card>
+      <div className="w-100 text-center mt-2">
+        Уже есть аккаунт? <Link to="/login">Вход</Link>
+      </div>
+    </>
+  );
+}

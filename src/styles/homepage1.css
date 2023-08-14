@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,600,800,500,700");
+
+:root {
+  --black: rgba(0, 0, 0, 1);
+  --white: rgba(255, 255, 255, 1);
+
+  --font-size-s: 14px;
+  --font-size-m: 28px;
+  --font-size-l: 36px;
+
+  --font-family-raleway: "Raleway";
+}
+
+.raleway-extra-bold-white-36px {
+  color: var(--white);
+  font-family: var(--font-family-raleway);
+  font-size: var(--font-size-l);
+  font-weight: 700;
+  font-style: normal;
+}
+
+.raleway-extra-bold-black-36px {
+  color: var(--white);
+  font-family: var(--font-family-raleway);
+  font-size: var(--font-size-l);
+  font-weight: 700;
+  font-style: normal;
+}
+
+.raleway-semi-bold-black-28px {
+  color: var(--black);
+  font-family: var(--font-family-raleway);
+  font-size: var(--font-size-m);
+  font-weight: 600;
+  font-style: normal;
+}
+
+.raleway-medium-black-14px {
+  color: var(--black);
+  font-family: var(--font-family-raleway);
+  font-size: var(--font-size-s);
+  font-weight: 500;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+}
+
+.container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.homepage {
+  align-items: center;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.overlap-group3 {
+  align-items: center;
+  position: relative;
+  height: 40px;
+  width: 100%;
+}
+
+.image-1 {
+  height: 38px;
+  width: 62px;
+}
+
+.line-2 {
+  width: 350px;
+  border: none;
+  border-top: 6px solid #00c3de;
+}
+
+.text-1,
+.text-2 {
+  max-width: 60%;
+  text-align: justify;
+  font-weight: 600;
+}
+
+.overlap-group5,
+.overlap-group4,
+.overlap-group2,
+.overlap-group {
+  width: 100%;
+  height: 40vh;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  height: 100px;
+  background-color: #00c3de;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+}

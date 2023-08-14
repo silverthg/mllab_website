@@ -1,0 +1,295 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,600,800,500,700");
+
+:root {
+  --black: rgda(0, 0, 0, 1);
+  --white: rgda(255, 255, 255, 1);
+
+  --font-size-s: 14px;
+  --font-size-m: 28px;
+  --font-size-l: 36px;
+
+  --font-family-raleway: "Raleway";
+}
+
+.raleway-extra-bold-white-36px {
+  color: var(--white);
+  font-family: var(--font-family-raleway);
+  font-size: var(--font-size-l);
+  font-weight: 700;
+  font-style: normal;
+}
+
+.raleway-extra-bold-black-36px {
+  color: var(--white);
+  font-family: var(--font-family-raleway);
+  font-size: var(--font-size-l);
+  font-weight: 700;
+  font-style: normal;
+}
+
+.raleway-semi-bold-black-28px {
+  color: var(--black);
+  font-family: var(--font-family-raleway);
+  font-size: var(--font-size-m);
+  font-weight: 600;
+  font-style: normal;
+}
+
+.raleway-medium-black-14px {
+  color: var(--black);
+  font-family: var(--font-family-raleway);
+  font-size: var(--font-size-s);
+  font-weight: 500;
+  font-style: normal;
+}
+
+.screen a {
+  display: contents;
+  text-decoration: none;
+}
+
+.container-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.container-center-horizontal > * {
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.homepage {
+  align-items: center;
+  background-color: var(--white);
+  border: 1px none;
+  display: flex;
+  flex-direction: column;
+  height: 2458px;
+  overflow: hidden;
+  width: 1920px;
+}
+
+.overlap-group3 {
+  align-self: flex-start;
+  height: 41px;
+  position: relative;
+  width: 1920px;
+}
+
+.overlap-group2 {
+  align-self: flex-start;
+  background-position: 50% 50%;
+  background-size: cover;
+  display: flex;
+  height: 467px;
+  margin-top: 109px;
+  min-width: 1920px;
+  padding: 211px 865px;
+}
+
+.overlap-group1 {
+  align-self: flex-start;
+  height: 505px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1920px;
+}
+
+.line-1 {
+  height: 5px;
+  left: 0;
+  position: absolute;
+  top: 40px;
+  width: 1920px;
+}
+
+.image-1 {
+  height: 38px;
+  left: 79px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 62px;
+}
+
+.image-2 {
+  height: 467px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 38px;
+  width: 1920px;
+}
+
+.line-2 {
+  width: 350px;
+  border: none;
+  border-top: 6px solid #00c3de;
+}
+
+.text-3 {
+  left: 415px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 9px;
+  width: 111px;
+  height: 20px;
+}
+
+.text-4 {
+  left: 555px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 9px;
+  width: 82px;
+  height: 20px;
+}
+
+.text-5 {
+  left: 666px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 9px;
+  width: 71px;
+  height: 20px;
+}
+
+.text-6 {
+  left: 766px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 9px;
+  width: 60px;
+  height: 20px;
+}
+
+.text-7 {
+  left: 1592px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 9px;
+  width: 89px;
+  height: 20px;
+}
+
+.text-8 {
+  left: 1710px;
+  letter-spacing: 0;
+  position: absolute;
+  top: 9px;
+  width: 60px;
+  height: 20px;
+}
+
+.text-10 {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 12px;
+  margin-top: 36px;
+  min-height: 44px;
+  width: 288px;
+}
+
+.text-11 {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: 40px;
+  min-height: 44px;
+  width: 346px;
+}
+
+.text-12 {
+  left: 842px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 211px;
+  width: 236px;
+}
+
+.text-13 {
+  color: var(--white);
+  font-family: var(--font-family-raleway);
+  font-size: var(--font-size-s);
+  font-weight: 400;
+  left: 1381px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 500px;
+  width: 390px;
+}
+
+.footer {
+  background-color: #00c3de;
+  height: 92px;
+  left: 0;
+  position: absolute;
+  top: 468px;
+  width: 1920px;
+}
+
+.text-1 {
+  align-self: flex-end;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-right: 252px;
+  margin-top: 95px;
+  min-height: 169px;
+  width: 858px;
+}
+
+.text-2 {
+  align-self: flex-start;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-left: 194px;
+  margin-top: 92px;
+  min-height: 169px;
+  width: 858px;
+}
+
+.overlap-group {
+  align-self: flex-start;
+  height: 627px;
+  margin-top: 106px;
+  position: relative;
+  width: 2640px;
+}
+
+.image-4 {
+  height: 467px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 1920px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.nav-link {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-family: Raleway;
+}
+
+.nav-link:hover {
+  color: #666;
+}

@@ -1,15 +1,36 @@
-import HomePage from "pages/HomePage";
-import LoginPage from "pages/LoginPage";
-import RegisterPage from "pages/RegisterPage";
-import { Routes, Route } from "react-router-dom";
+import React from "react";
+import Signup from "./components/SignUp";
+import { AuthProvider } from "./context/use-auth.js";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import GuestHomePage from "./pages/GuestHomePage";
+import UserHomePage from "./pages/UserHomePage";
+import Login from "./components/Login";
+import ForgotPassword from "./components/ForgotPassword";
+import PrivateRoute from "components/PrivateRoute";
 
 function App() {
   return (
-    <Routes>
-      <Route exact path="/" element={<HomePage />} />
-      <Route exact path="/login" element={<LoginPage />} />
-      <Route exact path="/register" element={<RegisterPage />} />
-    </Routes>
+    <div>
+      <Router>
+        <AuthProvider>
+          <Routes>
+            <Route path="/" element={<GuestHomePage />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            {/* <Route
+              path="/dashboard"
+              element={
+                <PrivateRoute>
+                  <UserHomePage />
+                </PrivateRoute>
+              }
+            /> */}
+            <Route path="/dashboard" element={<UserHomePage />} />
+          </Routes>
+        </AuthProvider>
+      </Router>
+    </div>
   );
 }
 
