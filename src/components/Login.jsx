@@ -18,7 +18,7 @@ export default function Login() {
       setError("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      navigate("/dashboard");
+      navigate("/");
     } catch {
       setError("Failed to log in");
     }
@@ -42,10 +42,10 @@ export default function Login() {
                   <Form.Control type="email" ref={emailRef} required />
                 </Form.Group>
                 <Form.Group id="password">
-                  <Form.Label>Пароль</Form.Label>
+                  <Form.Label className="mt-1">Пароль</Form.Label>
                   <Form.Control type="password" ref={passwordRef} required />
                 </Form.Group>
-                <Button disabled={loading} className="w-100" type="submit">
+                <Button disabled={loading} className="w-100 mt-3" type="submit">
                   Войти
                 </Button>
               </Form>

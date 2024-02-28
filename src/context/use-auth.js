@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { auth } from "../firebase";
+import { addOrUpdateUser, auth } from "../firebase";
 
 const AuthContext = React.createContext();
 
@@ -10,10 +10,20 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(true);
 
-  function signup(email, password) {
-    return auth.createUserWithEmailAndPassword(email, password);
+  function signup(email, password, firstName, lastName, middleName) {
+    return auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        const displayName = `${firstName} ${middleName} ${lastName}`;
+        userCredential.user.updateProfile({
+          displayName: displayName,
+        });
+
+        addOrUpdateUser(userCredential.user.uid, displayName, "");
+      });
   }
 
   function login(email, password) {
@@ -36,6 +46,10 @@ export function AuthProvider({ children }) {
     return currentUser.updatePassword(password);
   }
 
+  function updatePhone(phone) {
+    return currentUser.updatePhone(phone);
+  }
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       setCurrentUser(user);
@@ -52,11 +66,13 @@ export function AuthProvider({ children }) {
     currentUser,
     email,
     login,
+    phone,
     signup,
     logout,
     resetPassword,
     updateEmail,
     updatePassword,
+    updatePhone,
   };
 
   return (
